@@ -19,12 +19,12 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
+     stage('Deploy') {
       steps {
-        bat 'npm install -g netlify-cli'
-        bat 'npm run build'
-        bat 'netlify deploy --prod --dir=build --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN'
-      }
-    }
+        bat 'npm install netlify-cli'
+        bat 'npx netlify deploy --prod --dir=build --site=%NETLIFY_SITE_ID% --auth=%NETLIFY_AUTH_TOKEN%'
+  }
+}
+
   }
 }
